@@ -426,7 +426,8 @@ function Pricing() {
         <div className="section-label">03 — Pricing</div>
         <h2>Watch together, your way.</h2>
         <p className="section-sub">
-          SyncPlay is fully free for two. Need a bigger room? Two simple options.
+          SyncPlay is fully free for two. Need a bigger room? Only the host pays — guests
+          always join free, no account needed.
         </p>
 
         <div className="billing-toggle">
@@ -471,9 +472,9 @@ function Pricing() {
             </div>
             <div className="pricing-note">{proNote}</div>
             <ul className="pricing-features">
-              <li>Up to 5 people per room</li>
+              <li>Host rooms of up to 5 people</li>
+              <li>Guests join free — no account</li>
               <li>Unlimited rooms</li>
-              <li>Everything in Free</li>
               <li>Priority sync servers</li>
             </ul>
             <a href="#" className="pricing-btn primary">
@@ -488,10 +489,10 @@ function Pricing() {
             </div>
             <div className="pricing-note">single premium room</div>
             <ul className="pricing-features">
-              <li>Up to 5 people</li>
+              <li>Host a room of up to 5 people</li>
+              <li>Guests join free — no account</li>
               <li>One room, one session</li>
               <li>No subscription needed</li>
-              <li>Perfect for movie nights</li>
             </ul>
             <a href="#" className="pricing-btn secondary">
               Buy a pass
