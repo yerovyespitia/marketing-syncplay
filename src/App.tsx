@@ -161,74 +161,70 @@ function ProductFrame() {
             <div className="dot r" />
             <div className="dot y" />
             <div className="dot g" />
-            <div className="chrome-title">syncplay — Stranger Things · S04E09</div>
           </div>
-          <div className="app-body">
-            <aside className="app-sidebar">
-              <div className="sidebar-label">Room</div>
-              <div className="sidebar-item active">
-                <div className="ic" />
-                <span>Living room</span>
+          <div className="real-app-body">
+            <header className="real-app-header">
+              <div className="real-app-logo">
+                <div className="real-app-logo-mark">
+                  <LogoMark />
+                </div>
+                <div className="real-app-logo-text">
+                  <span className="real-app-logo-name">SYNCPLAY</span>
+                  <span className="real-app-logo-sub">Desktop</span>
+                </div>
               </div>
-              <div className="sidebar-item">
-                <div className="ic" />
-                <span>Friday movie</span>
+              <div className="real-app-badges">
+                <div className="connected-badge">
+                  <span className="connected-dot" />
+                  Connected
+                </div>
               </div>
-              <div className="sidebar-label">Sources</div>
-              <div className="sidebar-item">
-                <div className="ic" />
-                <span>YouTube</span>
-              </div>
-              <div className="sidebar-item">
-                <div className="ic" />
-                <span>Local file</span>
-              </div>
-              <div className="sidebar-item">
-                <div className="ic" />
-                <span>Magnet / Torrent</span>
-              </div>
-              <div className="room-code">
-                <div className="room-code-label">Room code</div>
-                <div className="room-code-value">PLX-7F2Q</div>
-              </div>
-            </aside>
+            </header>
 
-            <div className="video-area">
-              <div className="video-stage">
-                <div className="video-placeholder">
-                  <div className="play-btn" />
-                  <div className="video-label">[ video placeholder — 1920×1080 ]</div>
-                </div>
+            <div className="real-app-main">
+              <div className="real-app-hero">
+                <h3 className="real-app-heading">
+                  Watch anything<br />together, in sync.
+                </h3>
+                <p className="real-app-sub">
+                  Share a room code and play from YouTube, a local file, or a magnet link —
+                  everyone stays in perfect sync.
+                </p>
               </div>
-              <div className="video-controls">
-                <div className="ctrl-btn">▶</div>
-                <div className="time">24:18 / 58:03</div>
-                <div className="progress">
-                  <div className="progress-fill" />
-                </div>
-                <div className="ctrl-btn">⇄</div>
+              <div className="real-app-alias">
+                <label className="real-alias-label">Your alias</label>
+                <div className="real-alias-input">Guest 5056</div>
               </div>
             </div>
 
-            <aside className="app-chat">
-              <div className="chat-header">
-                <div className="avatars">
-                  <div className="avatar a" />
-                  <div className="avatar b" />
+            <div className="real-app-cards">
+              <div className="room-card">
+                <div className="room-card-label">CREATE ROOM</div>
+                <div className="room-card-title">Choose your media source</div>
+                <div className="source-tabs">
+                  <div className="source-tab active">YouTube</div>
+                  <div className="source-tab">Local File</div>
+                  <div className="source-tab">Magnet Link</div>
                 </div>
-                <div className="status">in sync</div>
+                <div className="real-field-label">YouTube URL</div>
+                <div className="real-input">https://www.youtube.com/watch?v=dQw4w9WgXcQ</div>
+                <div className="real-input-hint">Supports watch, short and embed URLs.</div>
+                <div className="room-btn-primary">Create sync room</div>
               </div>
-              <div className="message">
-                <div className="message-author">ana</div>
-                <div className="message-bubble">wait wait, pause 😩</div>
+
+              <div className="room-card-divider" />
+
+              <div className="room-card">
+                <div className="room-card-label join">JOIN ROOM</div>
+                <div className="room-card-title">Enter a shared room code</div>
+                <div className="real-field-label">Room code</div>
+                <div className="real-input placeholder">AB12CD</div>
+                <div className="real-input-hint">
+                  Use the room code whether the host chose YouTube or a local file.
+                </div>
+                <div className="room-btn-secondary">Join room</div>
               </div>
-              <div className="sync-event">ana paused at 24:18</div>
-              <div className="message mine">
-                <div className="message-author">you</div>
-                <div className="message-bubble mine">ok ready, go</div>
-              </div>
-              <div className="sync-event">resynced · +0.2s drift</div>
-            </aside>
+            </div>
           </div>
         </div>
       </div>
