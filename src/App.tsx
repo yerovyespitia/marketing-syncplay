@@ -1,6 +1,27 @@
 import { useEffect, useRef, useState } from 'react'
 import './App.css'
 
+function useReveal<T extends HTMLElement = HTMLElement>(
+  threshold = 0.15,
+  rootMargin = '0px 0px -120px 0px'
+) {
+  const ref = useRef<T>(null)
+  const [visible, setVisible] = useState(false)
+
+  useEffect(() => {
+    const el = ref.current
+    if (!el) return
+    const obs = new IntersectionObserver(
+      ([e]) => { if (e.isIntersecting) { setVisible(true); obs.disconnect() } },
+      { threshold, rootMargin }
+    )
+    obs.observe(el)
+    return () => obs.disconnect()
+  }, [threshold, rootMargin])
+
+  return [ref, visible] as const
+}
+
 function LogoMark() {
   return (
     <svg viewBox="34 34 92 92" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -236,16 +257,16 @@ function Hero() {
   return (
     <section className="hero">
       <div className="container">
-        <h1>
+        <h1 className="hero-anim hero-anim-1">
           Watch anything,
           <br />
           together <span className="accent">in sync.</span>
         </h1>
-        <p className="hero-sub">
+        <p className="hero-sub hero-anim hero-anim-2">
           SyncPlay keeps you and your friends watching the same video at the same moment — no
           matter where you are. One room, one code, perfectly synced playback.
         </p>
-        <div className="cta-row">
+        <div className="cta-row hero-anim hero-anim-3">
           <a href="#download" className="btn btn-primary">
             <AppleIcon />
             <span>Download for Mac</span>
@@ -262,18 +283,19 @@ function Hero() {
 }
 
 function Sources() {
+  const [ref, visible] = useReveal()
   return (
-    <section className="section" id="features">
+    <section ref={ref} className={`section${visible ? ' in-view' : ''}`} id="features">
       <div className="container">
-        <div className="section-label">01 — Sources</div>
-        <h2>Any video, a single room.</h2>
-        <p className="section-sub">
+        <div className="section-label reveal-up">01 — Sources</div>
+        <h2 className="reveal-up" style={{ '--delay': '0.08s' } as React.CSSProperties}>Any video, a single room.</h2>
+        <p className="section-sub reveal-up" style={{ '--delay': '0.14s' } as React.CSSProperties}>
           SyncPlay plays from three different sources — you pick, and the app keeps everything
           aligned down to the millisecond.
         </p>
 
         <div className="sources-grid">
-          <div className="source-card">
+          <div className="source-card reveal-up" style={{ '--delay': '0.22s' } as React.CSSProperties}>
             <div className="source-visual v-youtube">
               <div className="yt-card">
                 <div className="yt-thumb">
@@ -295,7 +317,7 @@ function Sources() {
             </div>
           </div>
 
-          <div className="source-card">
+          <div className="source-card reveal-up" style={{ '--delay': '0.32s' } as React.CSSProperties}>
             <div className="source-visual v-local">
               <div className="finder">
                 <div className="finder-top">
@@ -329,7 +351,7 @@ function Sources() {
             </div>
           </div>
 
-          <div className="source-card">
+          <div className="source-card reveal-up" style={{ '--delay': '0.42s' } as React.CSSProperties}>
             <div className="source-visual v-torrent">
               <div className="torrent-card">
                 <div className="torrent-row">
@@ -361,18 +383,19 @@ function Sources() {
 }
 
 function HowItWorks() {
+  const [ref, visible] = useReveal()
   return (
-    <section className="section" id="how">
+    <section ref={ref} className={`section${visible ? ' in-view' : ''}`} id="how">
       <div className="container">
-        <div className="section-label">02 — How it works</div>
-        <h2>Three steps. Zero friction.</h2>
-        <p className="section-sub">
+        <div className="section-label reveal-up">02 — How it works</div>
+        <h2 className="reveal-up" style={{ '--delay': '0.08s' } as React.CSSProperties}>Three steps. Zero friction.</h2>
+        <p className="section-sub reveal-up" style={{ '--delay': '0.14s' } as React.CSSProperties}>
           No need for accounts, no middle servers, no setup. Open the app and you're already
           watching together.
         </p>
 
         <div className="how-grid">
-          <div className="step">
+          <div className="step reveal-up" style={{ '--delay': '0.22s' } as React.CSSProperties}>
             <div className="step-icon">
               <PlayIcon />
             </div>
@@ -383,7 +406,7 @@ function HowItWorks() {
               source type automatically.
             </div>
           </div>
-          <div className="step">
+          <div className="step reveal-up" style={{ '--delay': '0.32s' } as React.CSSProperties}>
             <div className="step-icon">
               <PlusIcon />
             </div>
@@ -393,7 +416,7 @@ function HowItWorks() {
               Click "New room" and you get a unique 6-character code you can share over chat.
             </div>
           </div>
-          <div className="step">
+          <div className="step reveal-up" style={{ '--delay': '0.42s' } as React.CSSProperties}>
             <div className="step-icon">
               <UsersIcon />
             </div>
@@ -411,22 +434,23 @@ function HowItWorks() {
 
 function Pricing() {
   const [yearly, setYearly] = useState(true)
+  const [ref, visible] = useReveal()
 
   const proAmount = yearly ? '50' : '6'
   const proPeriod = yearly ? '/yr' : '/mo'
   const proNote = yearly ? '$4.16/mo · billed annually' : 'cancel anytime'
 
   return (
-    <section className="section" id="pricing">
+    <section ref={ref} className={`section${visible ? ' in-view' : ''}`} id="pricing">
       <div className="container">
-        <div className="section-label">03 — Pricing</div>
-        <h2>Watch together, your way.</h2>
-        <p className="section-sub">
+        <div className="section-label reveal-up">03 — Pricing</div>
+        <h2 className="reveal-up" style={{ '--delay': '0.08s' } as React.CSSProperties}>Watch together, your way.</h2>
+        <p className="section-sub reveal-up" style={{ '--delay': '0.14s' } as React.CSSProperties}>
           SyncPlay is fully free for two. Need a bigger room? Only the host pays — guests
           always join free, no account needed.
         </p>
 
-        <div className="billing-toggle">
+        <div className="billing-toggle reveal-up" style={{ '--delay': '0.2s' } as React.CSSProperties}>
           <span className={yearly ? '' : 'active'}>Monthly</span>
           <button
             type="button"
@@ -442,7 +466,7 @@ function Pricing() {
         </div>
 
         <div className="pricing-grid">
-          <div className="pricing-card">
+          <div className="pricing-card reveal-up" style={{ '--delay': '0.28s' } as React.CSSProperties}>
             <div className="pricing-tag">Free</div>
             <div className="pricing-price">
               <span className="currency">$</span>0
@@ -459,7 +483,7 @@ function Pricing() {
             </a>
           </div>
 
-          <div className="pricing-card featured">
+          <div className="pricing-card featured reveal-up" style={{ '--delay': '0.38s' } as React.CSSProperties}>
             <div className="pricing-tag">Pro</div>
             <div className="pricing-price">
               <span className="currency">$</span>
@@ -478,7 +502,7 @@ function Pricing() {
             </a>
           </div>
 
-          <div className="pricing-card">
+          <div className="pricing-card reveal-up" style={{ '--delay': '0.48s' } as React.CSSProperties}>
             <div className="pricing-tag">One-time pass</div>
             <div className="pricing-price">
               <span className="currency">$</span>1
@@ -501,9 +525,10 @@ function Pricing() {
 }
 
 function DownloadCTA() {
+  const [ref, visible] = useReveal<HTMLDivElement>(0.2, '0px 0px -60px 0px')
   return (
     <section className="container" id="download">
-      <div className="download-section">
+      <div ref={ref} className={`download-section reveal-up${visible ? ' visible' : ''}`}>
         <div className="badge">
           <span className="badge-dot" />
           <span>Start Now</span>

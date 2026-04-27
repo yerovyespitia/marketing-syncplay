@@ -1391,6 +1391,42 @@ footer {
   }
 }
 
+/* Hero load animations */
+@keyframes heroFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.hero-anim {
+  animation: heroFadeUp 0.75s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.hero-anim-1 { animation-delay: 0.05s; }
+.hero-anim-2 { animation-delay: 0.18s; }
+.hero-anim-3 { animation-delay: 0.3s; }
+
+/* Scroll reveal */
+.reveal-up {
+  opacity: 0;
+  transform: translateY(22px);
+  transition:
+    opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1) var(--delay, 0s),
+    transform 0.6s cubic-bezier(0.22, 1, 0.36, 1) var(--delay, 0s);
+}
+.in-view .reveal-up {
+  opacity: 1;
+  transform: none;
+}
+/* DownloadCTA uses .visible directly on the element */
+.reveal-up.visible {
+  opacity: 1;
+  transform: none;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -1400,5 +1436,11 @@ footer {
   }
   .product-frame {
     transform: none !important;
+  }
+  .reveal-up,
+  .hero-anim {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
   }
 }
