@@ -407,8 +407,8 @@ function HowItWorks() {
             <div className="step-num">step 01</div>
             <div className="step-title">Pick a video</div>
             <div className="step-desc">
-              Paste a YouTube link, drop a video file or paste a magnet. The app detects the
-              source type automatically.
+              Paste a YouTube link or paste a magnet. The app detects the source type
+              automatically.
             </div>
           </div>
           <div className="step reveal-up" style={{ '--delay': '0.32s' } as React.CSSProperties}>
