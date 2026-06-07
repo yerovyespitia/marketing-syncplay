@@ -224,7 +224,6 @@ function ProductFrame() {
                 <div className="room-card-title">Choose your media source</div>
                 <div className="source-tabs">
                   <div className="source-tab active">YouTube</div>
-                  <div className="source-tab">Local File</div>
                   <div className="source-tab">Magnet Link</div>
                 </div>
                 <div className="real-field-label">YouTube URL</div>
@@ -317,7 +316,10 @@ function Sources() {
             </div>
           </div>
 
-          <div className="source-card reveal-up" style={{ '--delay': '0.32s' } as React.CSSProperties}>
+          <div
+            className="source-card source-card-soon reveal-up"
+            style={{ '--delay': '0.32s' } as React.CSSProperties}
+          >
             <div className="source-visual v-local">
               <div className="finder">
                 <div className="finder-top">
@@ -343,7 +345,10 @@ function Sources() {
             </div>
             <div className="source-body">
               <div className="source-kind">file://local</div>
-              <div className="source-title">Local files</div>
+              <div className="source-title-row">
+                <div className="source-title">Local files</div>
+                <span className="source-soon-badge">Soon</span>
+              </div>
               <div className="source-desc">
                 MP4, MKV, MOV, WEBM — if your computer can play it, SyncPlay can sync it. No
                 uploads to any server.
@@ -436,9 +441,9 @@ function Pricing() {
   const [yearly, setYearly] = useState(true)
   const [ref, visible] = useReveal()
 
-  const proAmount = yearly ? '50' : '6'
+  const proAmount = yearly ? '25' : '3'
   const proPeriod = yearly ? '/yr' : '/mo'
-  const proNote = yearly ? '$4.16/mo · billed annually' : 'cancel anytime'
+  const proNote = yearly ? '$2.10/mo · billed annually' : 'cancel anytime'
 
   return (
     <section ref={ref} className={`section${visible ? ' in-view' : ''}`} id="pricing">

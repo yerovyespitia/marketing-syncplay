@@ -848,6 +848,28 @@ h2 {
   border-color: rgba(139, 92, 246, 0.3);
   box-shadow: 0 20px 40px -20px rgba(139, 92, 246, 0.2);
 }
+.source-card-soon {
+  background: linear-gradient(180deg, rgba(19, 20, 26, 0.96) 0%, rgba(11, 12, 17, 0.98) 100%);
+  border-color: rgba(255, 255, 255, 0.08);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.03);
+}
+.source-card-soon:hover {
+  transform: translateY(-1px);
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.03),
+    0 16px 36px -24px rgba(0, 0, 0, 0.42);
+}
+.source-card-soon::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(6, 7, 10, 0.14) 0%, rgba(6, 7, 10, 0.32) 100%),
+    rgba(6, 7, 10, 0.18);
+  pointer-events: none;
+  z-index: 1;
+}
 .source-visual {
   aspect-ratio: 16 / 10;
   position: relative;
@@ -872,10 +894,54 @@ h2 {
   letter-spacing: -0.015em;
   margin-bottom: 8px;
 }
+.source-title-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+.source-title-row .source-title {
+  margin-bottom: 0;
+}
+.source-soon-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 9px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.05);
+  color: rgba(255, 255, 255, 0.68);
+  font-family: 'Geist Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
 .source-desc {
   font-size: 13px;
   color: var(--fg-muted);
   line-height: 1.5;
+}
+.source-card-soon .source-kind,
+.source-card-soon .source-title,
+.source-card-soon .source-desc {
+  color: rgba(255, 255, 255, 0.48);
+}
+.source-card-soon .source-desc {
+  color: rgba(255, 255, 255, 0.38);
+}
+.source-card-soon .source-visual {
+  filter: grayscale(0.7) saturate(0.55) brightness(0.72);
+}
+.source-card-soon .source-body,
+.source-card-soon .source-visual {
+  position: relative;
+  z-index: 0;
+}
+.source-card-soon .finder,
+.source-card-soon .finder-list,
+.source-card-soon .file-row,
+.source-card-soon .file-icon {
+  opacity: 0.68;
 }
 
 /* Source visuals */
