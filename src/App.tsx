@@ -139,6 +139,7 @@ function Nav() {
         <div className="nav-links">
           <a href="#features">Features</a>
           <a href="#how">How it works</a>
+          <a href="#pricing">Pricing</a>
           <a href="#download" className="nav-cta">
             Download
           </a>

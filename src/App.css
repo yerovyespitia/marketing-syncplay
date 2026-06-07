@@ -142,16 +142,10 @@ h1 {
   line-height: 0.98;
   letter-spacing: -0.035em;
   margin-bottom: 24px;
-  background: linear-gradient(180deg, #ffffff 0%, #c8c8d4 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  color: #e6e6ee;
 }
 h1 .accent {
-  background: linear-gradient(180deg, var(--accent-2) 0%, var(--accent) 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  color: #976ff8;
   font-style: italic;
   font-weight: 500;
   padding-bottom: 0.08em;
@@ -198,7 +192,8 @@ h1 .accent {
     0 8px 24px rgba(255, 255, 255, 0.08);
 }
 .btn-primary:hover {
-  transform: translateY(-1px);
+  background: #d9dde6;
+  color: #111318;
   box-shadow:
     0 1px 0 rgba(255, 255, 255, 0.4) inset,
     0 12px 32px rgba(255, 255, 255, 0.15);
@@ -209,9 +204,9 @@ h1 .accent {
   border: 1px solid var(--border-2);
 }
 .btn-secondary:hover {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.2);
-  transform: translateY(-1px);
+  background: rgba(255, 255, 255, 0.16);
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.28);
 }
 .btn svg {
   width: 16px;
