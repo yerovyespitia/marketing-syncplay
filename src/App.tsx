@@ -290,7 +290,7 @@ function Sources() {
         <div className="section-label reveal-up">01 — Sources</div>
         <h2 className="reveal-up" style={{ '--delay': '0.08s' } as React.CSSProperties}>Any video, a single room.</h2>
         <p className="section-sub reveal-up" style={{ '--delay': '0.14s' } as React.CSSProperties}>
-          SyncPlay plays from three different sources — you pick, and the app keeps everything
+          SyncPlay plays from different sources — you pick, and the app keeps everything
           aligned down to the millisecond.
         </p>
 
@@ -313,46 +313,6 @@ function Sources() {
               <div className="source-desc">
                 Paste the link. SyncPlay plays it natively and keeps the timestamp identical on
                 both ends.
-              </div>
-            </div>
-          </div>
-
-          <div
-            className="source-card source-card-soon reveal-up"
-            style={{ '--delay': '0.32s' } as React.CSSProperties}
-          >
-            <div className="source-visual v-local">
-              <div className="finder">
-                <div className="finder-top">
-                  <div className="dot r" />
-                  <div className="dot y" />
-                  <div className="dot g" />
-                </div>
-                <div className="finder-list">
-                  <div className="file-row">
-                    <div className="file-icon" /> movie_01.mkv
-                  </div>
-                  <div className="file-row sel">
-                    <div className="file-icon" /> episode_09.mp4
-                  </div>
-                  <div className="file-row">
-                    <div className="file-icon" /> trailer.mov
-                  </div>
-                  <div className="file-row">
-                    <div className="file-icon" /> clip_final.webm
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="source-body">
-              <div className="source-kind">file://local</div>
-              <div className="source-title-row">
-                <div className="source-title">Local files</div>
-                <span className="source-soon-badge">Soon</span>
-              </div>
-              <div className="source-desc">
-                MP4, MKV, MOV, WEBM — if your computer can play it, SyncPlay can sync it. No
-                uploads to any server.
               </div>
             </div>
           </div>
@@ -442,9 +402,9 @@ function Pricing() {
   const [yearly, setYearly] = useState(true)
   const [ref, visible] = useReveal()
 
-  const proAmount = yearly ? '25' : '3'
+  const proAmount = yearly ? '34' : '4'
   const proPeriod = yearly ? '/yr' : '/mo'
-  const proNote = yearly ? '$2.10/mo · billed annually' : 'cancel anytime'
+  const proNote = yearly ? '$2.83/mo · billed annually' : 'cancel anytime'
 
   return (
     <section ref={ref} className={`section${visible ? ' in-view' : ''}`} id="pricing">
@@ -515,7 +475,7 @@ function Pricing() {
             </div>
             <div className="pricing-note">single premium room</div>
             <ul className="pricing-features">
-              <li>Host a room of up to 5 people</li>
+              <li>Host a room of up to 2 people</li>
               <li>Guests join free — no account</li>
               <li>One room, one session</li>
               <li>No subscription needed</li>
